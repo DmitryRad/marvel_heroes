@@ -14,6 +14,7 @@ class RandomChar extends Component {
         error: false
     }
 
+
     marvelService = new MarvelService();
 
     componentDidMount() {
@@ -66,7 +67,10 @@ class RandomChar extends Component {
                     <p className="randomchar__title">
                         Or choose another one
                     </p>
-                    <button className="button button__main">
+                    <button
+                        className="button button__main"
+                        // по нажатию на кнопку "try it" происходит обновление случайного персонажа
+                        onClick={this.updateChar}>
                         <div className="inner">try it</div>
                     </button>
                     <img src={mjolnir} alt="mjolnir" className="randomchar__decoration"/>
@@ -75,6 +79,7 @@ class RandomChar extends Component {
         )
     }
 }
+
 
 const View = ({char}) => {
     const {name, description, thumbnail, homepage, wiki} = char;

@@ -12,20 +12,14 @@ class App extends Component {
         showRandomChar: true
     }
 
-    toggleRandomChar = () => {
-        this.setState((state) => {
-            return {
-                showRandomChar: !state.showRandomChar
-            }
-        })
-    }
+
     render() {
         return (
             <div className="app">
                 <AppHeader/>
                 <main>
                     {this.state.showRandomChar ? <RandomChar/> : null}
-                    <button onClick={this.toggleRandomChar}>CLick me</button>
+
                     <div className="char__content">
                         <CharList/>
                         <CharInfo/>
