@@ -1,8 +1,8 @@
-import { Component } from 'react';
+import {Component} from 'react';
+import Spinner from '../spinner/Spinner';
+import ErrorMessage from '../errorMessage/ErrorMessage';
+import MarvelService from '../../services/MarvelService';
 import './charList.scss';
-import MarvelService from "../../services/MarvelService";
-import ErrorMessage from "../errorMessage/ErrorMessage";
-import Spinner from "../spinner/Spinner";
 
 class CharList extends Component {
 
@@ -34,8 +34,10 @@ class CharList extends Component {
         })
     }
 
+    // Этот метод создан для оптимизации,
+    // чтобы не помещать такую конструкцию в метод render
     renderItems(arr) {
-        const items = arr.map((item) => {
+        const items =  arr.map((item) => {
             let imgStyle = {'objectFit' : 'cover'};
             if (item.thumbnail === 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
                 imgStyle = {'objectFit' : 'unset'};
@@ -50,7 +52,7 @@ class CharList extends Component {
                 </li>
             )
         });
-
+        // А эта конструкция вынесена для центровки спиннера/ошибки
         return (
             <ul className="char__grid">
                 {items}
