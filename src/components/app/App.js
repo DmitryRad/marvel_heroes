@@ -8,8 +8,16 @@ import CharInfo from "../charInfo/CharInfo";
 import decoration from '../../resources/img/vision.png';
 
 class App extends Component {
+
     state = {
+        selectedChar: null,
         showRandomChar: true
+    }
+
+    onCharSelected = (id) => {
+        this.setState({
+            selectedChar: id
+        })
     }
 
 
@@ -21,8 +29,8 @@ class App extends Component {
                     {this.state.showRandomChar ? <RandomChar/> : null}
 
                     <div className="char__content">
-                        <CharList/>
-                        <CharInfo/>
+                        <CharList onCharSelected={this.onCharSelected}/>
+                        <CharInfo charId={this.state.selectedChar}/>
                     </div>
                     <img className="bg-decoration" src={decoration} alt="vision"/>
                 </main>
