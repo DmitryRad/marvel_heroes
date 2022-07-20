@@ -11,10 +11,10 @@ import ErrorMessage from "../errorMessage/ErrorMessage";
 
 const App = () => {
 
-    const [selectedChar, setChar] = useState(null);
+    const [selectedChar, setSelectedChar] = useState(null);
 
     const onCharSelected = (id) => {
-        setChar(id);
+        setSelectedChar(id);
     }
 
     return (
