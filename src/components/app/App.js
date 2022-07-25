@@ -8,6 +8,7 @@ import ErrorBoundary from "../errorBoundary/ErrorBoundary";
 
 import decoration from '../../resources/img/vision.png';
 import ErrorMessage from "../errorMessage/ErrorMessage";
+import TestComponent from "../testComponent/TestComponent";
 
 const App = () => {
 
@@ -19,6 +20,7 @@ const App = () => {
 
     return (
         <div className="app">
+            <TestComponent/>
             <AppHeader/>
             <main>
                 <ErrorBoundary>
