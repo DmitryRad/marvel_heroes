@@ -12,6 +12,17 @@ const useMarvelService = () => {
         return res.data.results.map(_transformCharacter);
     }
 
+    // Модифицированная функция по получению всех персонажей и отдельного по имени
+/*    const getAllCharacters = async (offset = _baseOffset, name = '') => {
+        const res = await request(`${_apiBase}characters?limit=9&offset=${offset}${name ? `&name=${name}` : '' }&${_apiKey}`);
+        return res.data.results.map(_transformCharacter);
+    }*/
+
+    const getCharacterByName = async (name) => {
+        const res = await request(`${_apiBase}characters?name=${name}&${_apiKey}`);
+        return res.data.results.map(_transformCharacter);
+    }
+
     const getCharacter = async (id) => {
         const res = await request(`${_apiBase}characters/${id}?&${_apiKey}`);
         return _transformCharacter(res.data.results[0]);
@@ -52,7 +63,7 @@ const useMarvelService = () => {
         }
     }
 
-    return {loading, error, clearError, getAllCharacters, getCharacter, getAllComics, getComic}
+    return {loading, error, clearError, getAllCharacters, getCharacter, getAllComics, getComic, getCharacterByName}
 }
 
 export default useMarvelService;
